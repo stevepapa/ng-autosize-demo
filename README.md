@@ -1,28 +1,47 @@
-# NgAutosizeDemo
+# ng-autosize-demo (demo for `ng-autosize`)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
+This repository is a **demo app for the `ng-autosize` project**: an Angular textarea autosize (“elastic height”) directive.
 
-## Development server
+- `ng-autosize` on GitHub: https://github.com/stevepapa/ng-autosize
+- `ng-autosize` on npm: https://www.npmjs.com/package/ng-autosize
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This demo shows how `ng-autosize` behaves in a modern Angular (v19) app: the textarea grows with content, supports `minHeight` / `maxHeight`, and includes a `refresh()` pattern for programmatic updates.
 
-## Code scaffolding
+## What you get
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+- **Autosize on typing** (no manual sizing)
+- **Min/Max height constraints** (`[minHeight]` / `[maxHeight]` in px)
+- **Programmatic updates** pattern: set value then call `refresh()`
+- **Standalone directive** usage (no NgModule required)
 
-## Build
+Note: this repo vendors a small autosize directive in `src/app/autosize.directive.ts` to keep the demo buildable; the canonical library is `ng-autosize` linked above.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Quick start
 
-## Running unit tests
+```bash
+npm install
+npm start
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Open `http://localhost:4200/`.
 
-## Running end-to-end tests
+## Build + test
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+```bash
+npm run build
+npm test -- --watch=false --browsers=ChromeHeadless
+```
 
-## Further help
+To preview the production build output, serve `dist/temp-ng19/browser` with any static server.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Demo usage
+
+In a template:
+
+- Add `autosize` to a `<textarea>`
+- Optionally set `[minHeight]` and/or `[maxHeight]`
+- Use `#ref="autosize"` to call `ref.refresh()` after programmatic changes
+
+## Publishing
+
+This repo is configured to publish to npm on tags like `v2.0.0` via `.github/workflows/release.yml` (requires `NPM_TOKEN` GitHub secret).
