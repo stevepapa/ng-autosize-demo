@@ -1,6 +1,6 @@
 {
   "name": "ng-autosize-demo",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Angular textarea autosize demo (auto-resize / elastic textarea height) with minHeight, maxHeight, and refresh() for programmatic updates.",
   "keywords": [
     "angular",
@@ -35,6 +35,7 @@
     "access": "public"
   },
   "files": [
+    ".promptg/",
     "dist/",
     "public/",
     "src/",
