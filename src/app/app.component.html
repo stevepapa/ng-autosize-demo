@@ -1,84 +1,112 @@
-<div class="hero">
-  <div class="container-fluid">
-    <div class="col-lg-12">
-      <h1 class="text-uppercase">
-        ng-autosize
-      </h1>
-      <h3>
-        ng-autosize is an Angular2, Angular4+ directive that automatically adjusts textarea height to fit content.
-      </h3>
-      <br>
-      <textarea autosize>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        
-Leo integer malesuada nunc vel risus commodo viverra maecenas accumsan. Posuere morbi leo urna molestie at elementum eu facilisis sed.
+<main class="page">
+  <header class="header">
+    <h1>{{ title }}</h1>
+    <p>
+      Textareas resize on <code>input</code>. Use <code>refresh()</code> after programmatic value changes.
+    </p>
+  </header>
 
-Nec ultrices dui sapien eget mi proin sed. Eget nullam non nisi est. Nascetur ridiculus mus mauris vitae ultricies. Viverra tellus in hac habitasse platea dictumst vestibulum.</textarea>
+  <section class="card">
+    <h2>Basic</h2>
+    <textarea autosize [(ngModel)]="basicText" #basicAutosize="autosize" rows="2"></textarea>
+    <div class="row">
+      <button type="button" (click)="setSample(basicAutosize)">Set value + refresh()</button>
+      <button type="button" (click)="basicAutosize.refresh()">refresh()</button>
     </div>
-  </div>
-</div>
+  </section>
 
+  <section class="card">
+    <h2>Min height</h2>
+    <textarea autosize [minHeight]="minHeight" [(ngModel)]="minHeightText" rows="2"></textarea>
+    <label class="row">
+      <span>minHeight (px)</span>
+      <input type="number" [(ngModel)]="minHeight" />
+    </label>
+  </section>
 
-<div class="container-fluid">
-  <div class="col-lg-12">
-    <h2 class="badge-divide">Links</h2>
-    <div class="dl-container">
-      <h3 class="dl">
-        <a href="http://github.com/stevepapa/ng-autosize">GITHUB</a>
-      </h3>
-      <h3 class="dl">
-        <a href="npmjs.com/package/ng-autosize">NPM</a>
-      </h3>
-    </div>
-  </div>
-</div>
+  <section class="card">
+    <h2>Max height</h2>
+    <textarea autosize [maxHeight]="maxHeight" [(ngModel)]="maxHeightText" rows="2"></textarea>
+    <label class="row">
+      <span>maxHeight (px)</span>
+      <input type="number" [(ngModel)]="maxHeight" />
+    </label>
+  </section>
+</main>
 
+<style>
+  .page {
+    max-width: 860px;
+    padding: 2rem 1rem;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  }
 
-<div class="wrapper-alt">
-  <div class="container-fluid">
-    <div class="col-lg-12">
-      <h2 class="badge-divide">Installation</h2>
-      <p>Step 1: Install using NPM.</p>
-      <pre>npm install ng-autosize</pre>
-      <p>Step 2: Add the declaration to your @NgModule</p>
-      <pre>&#x69;&#x6D;&#x70;&#x6F;&#x72;&#x74;&#x20;&#x7B;&#x20;&#x41;&#x75;&#x74;&#x6F;&#x73;&#x69;&#x7A;&#x65;&#x20;&#x7D;&#x20;&#x66;&#x72;&#x6F;&#x6D;&#x20;&#x27;&#x6E;&#x67;&#x2D;&#x61;&#x75;&#x74;&#x6F;&#x73;&#x69;&#x7A;&#x65;&#x27;&#x3B;&#xA;&#x20;&#x20;&#x20;&#x20;&#xA;&#x2E;&#x2E;&#x2E;&#xA;&#xA;&#x40;&#x4E;&#x67;&#x4D;&#x6F;&#x64;&#x75;&#x6C;&#x65;&#x28;&#x7B;&#xA;&#x20;&#x20;&#x64;&#x65;&#x63;&#x6C;&#x61;&#x72;&#x61;&#x74;&#x69;&#x6F;&#x6E;&#x73;&#x3A;&#x20;&#x5B;&#xA;&#x20;&#x20;&#x20;&#x20;&#x41;&#x75;&#x74;&#x6F;&#x73;&#x69;&#x7A;&#x65;&#xA;&#x20;&#x20;&#x5D;&#xA;&#x7D;&#x29;</pre>
-    </div>
-  </div>
-</div>
+  .header h1 {
+    margin: 0 0 0.25rem;
+    font-size: 1.6rem;
+  }
 
+  .header p {
+    margin: 0;
+    color: #555;
+  }
 
-<div class="container-fluid">
-  <div class="col-lg-12">
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1rem;
+    background: #fff;
+  }
 
-    <h2 class="badge-divide">Standard Usage</h2>
+  .card h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1rem;
+  }
 
-    <p>Use directly inside your HTML templates by adding the word autosize to textarea elements</p>
-    <pre>&lt;textarea autosize>Hello, this is an example of Autosize in Angular2.&lt;/textarea></pre>
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem;
+    font: inherit;
+    line-height: 1.3;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
 
-  </div>
-</div>
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
 
-<div class="wrapper-alt">
-  <div class="container-fluid">
-    <div class="col-lg-12">
+  button {
+    border: 1px solid #ccc;
+    background: #f7f7f7;
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+  }
 
-      <h2 class="badge-divide">Setting Minimum Height</h2>
+  button:hover {
+    background: #eee;
+  }
 
-      <p>Add the maxHeight value to any textarea you want to set a minimum height on.</p>
-      <pre>&lt;textarea [minHeight]="60px" autosize>Hello, this is an example of Autosize in Angular2.&lt;/textarea></pre>
+  label.row {
+    justify-content: space-between;
+  }
 
-    </div>
-  </div>
-</div>
+  input[type='number'] {
+    width: 120px;
+  }
 
-<div class="wrapper-alt">
-  <div class="container-fluid">
-    <div class="col-lg-12">
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+      'Courier New', monospace;
+    font-size: 0.95em;
+  }
+</style>
 
-      <h2 class="badge-divide">Setting Maximum Height</h2>
-
-      <p>Add the maxHeight value to any textarea you want to set a maximum height on.</p>
-      <pre>&lt;textarea autosize [maxHeight]="120px">Hello, this is an example of Autosize in Angular2.&lt;/textarea></pre>
-
-    </div>
-  </div>
-</div>

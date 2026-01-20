@@ -24,7 +24,16 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# LLM / AI assistants
+/.claude
+/.codex
+/.aider*
+/.cursor
+/.windsurf
+/.continue
+
 # misc
+/.angular/cache
 /.sass-cache
 /connect.lock
 /coverage
