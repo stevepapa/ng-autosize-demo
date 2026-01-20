@@ -1,49 +1,82 @@
 {
   "name": "ng-autosize-demo",
-  "version": "0.0.0",
+  "version": "2.0.0",
+  "description": "Angular textarea autosize demo (auto-resize / elastic textarea height) with minHeight, maxHeight, and refresh() for programmatic updates.",
+  "keywords": [
+    "angular",
+    "angular19",
+    "textarea",
+    "autosize",
+    "auto-resize",
+    "autoresize",
+    "textarea-autosize",
+    "textarea-autoresize",
+    "elastic-textarea",
+    "dynamic-height",
+    "resize-textarea",
+    "standalone",
+    "directive",
+    "ngModel",
+    "forms",
+    "demo",
+    "example",
+    "ng-autosize"
+  ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stevepapa/ng-autosize-demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stevepapa/ng-autosize-demo/issues"
+  },
+  "homepage": "https://github.com/stevepapa/ng-autosize-demo#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/",
+    "public/",
+    "src/",
+    "angular.json",
+    "tsconfig*.json",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
   },
-  "private": true,
   "dependencies": {
-    "@angular/animations": "^4.0.0",
-    "@angular/common": "^4.0.0",
-    "@angular/compiler": "^4.0.0",
-    "@angular/core": "^4.0.0",
-    "@angular/forms": "^4.0.0",
-    "@angular/http": "^4.0.0",
-    "@angular/platform-browser": "^4.0.0",
-    "@angular/platform-browser-dynamic": "^4.0.0",
-    "@angular/router": "^4.0.0",
-    "core-js": "^2.4.1",
-    "ng-autosize": "^1.0.1",
-    "rxjs": "^5.1.0",
-    "zone.js": "^0.8.4"
+    "@angular/common": "^19.2.0",
+    "@angular/compiler": "^19.2.0",
+    "@angular/core": "^19.2.0",
+    "@angular/forms": "^19.2.0",
+    "@angular/platform-browser": "^19.2.0",
+    "@angular/platform-browser-dynamic": "^19.2.0",
+    "@angular/router": "^19.2.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
-    "@angular/cli": "1.1.3",
-    "@angular/compiler-cli": "^4.0.0",
-    "@angular/language-service": "^4.0.0",
-    "@types/jasmine": "2.5.45",
-    "@types/node": "~6.0.60",
-    "codelyzer": "~3.0.1",
-    "jasmine-core": "~2.6.2",
-    "jasmine-spec-reporter": "~4.1.0",
-    "karma": "~1.7.0",
-    "karma-chrome-launcher": "~2.1.1",
-    "karma-cli": "~1.0.1",
-    "karma-coverage-istanbul-reporter": "^1.2.1",
-    "karma-jasmine": "~1.1.0",
-    "karma-jasmine-html-reporter": "^0.2.2",
-    "protractor": "~5.1.2",
-    "ts-node": "~3.0.4",
-    "tslint": "~5.3.2",
-    "typescript": "~2.3.3"
+    "@angular-devkit/build-angular": "^19.2.19",
+    "@angular/cli": "^19.2.19",
+    "@angular/compiler-cli": "^19.2.0",
+    "@playwright/test": "^1.57.0",
+    "@types/jasmine": "~5.1.0",
+    "jasmine-core": "~5.6.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "prettier": "^3.8.0",
+    "typescript": "~5.7.2"
   }
 }

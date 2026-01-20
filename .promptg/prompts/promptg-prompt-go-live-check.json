@@ -1,0 +1,12 @@
+{
+  "$schema": "https://promptg.io/schemas/v1/prompt.schema.json",
+  "kind": "prompt",
+  "schemaVersion": "1",
+  "name": "go-live-check",
+  "displayName": "Go-Live Check",
+  "description": "Validate the app is buildable and testable for deployment; focus only on blockers.",
+  "tags": ["release", "verification", "angular"],
+  "content": "Goal: determine whether this repo is ready to deploy.\n\nRequired checks:\n- `npm run build`\n- `npm test -- --watch=false --browsers=ChromeHeadless`\n\nRules:\n- Treat build failures or test failures as blockers.\n- Do not expand scope beyond resolving blockers.\n- If `npm audit` reports issues in dev tooling, mention them but do not block go-live unless explicitly asked.\n\nOutput:\n- PASS/FAIL\n- Exact failing command(s) and error(s)\n- Minimal fix plan (or applied fix summary)\n",
+  "defaults": {}
+}
+
